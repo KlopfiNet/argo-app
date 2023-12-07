@@ -7,4 +7,3 @@ helmCharts:
     releaseName: sealed-secrets 
     namespace: kube-system
     version: 2.13.3
-    valuesFile: values.yaml
