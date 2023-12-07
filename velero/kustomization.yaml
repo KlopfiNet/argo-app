@@ -9,6 +9,13 @@ helmCharts:
     version: 5.1.6
     valuesFile: values.yaml
 
+  # The vmware-tanzu chart does not install the CRDs...
+  - name: velero-crds
+    repo: https://wiremind.github.io/wiremind-helm-charts
+    releaseName: velero-crds
+    namespace: velero
+    version: 5.1.4
+
 resources:
   - namespace_velero.yaml
   - sealedsecret_cloud-credentials.yaml
