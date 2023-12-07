@@ -1,0 +1,19 @@
+configuration:
+  backupStorageLocation:
+  - name: default
+    provider: aws
+    bucket: velero
+    default: true
+    accessMode: ReadWrite
+    credentials:
+      name: cloud-credentials
+      key: cloud
+    config: 
+      region: minio
+      s3ForcePathStyle: "true"
+      s3Url: https://minio.klopfi.net:9000
+      profile: "default"
+      insecureSkipTLSVerify: true
+
+credentials:
+  useSecret: false
