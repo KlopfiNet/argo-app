@@ -17,3 +17,5 @@ configuration:
 
 credentials:
   useSecret: false
+
+upgradeCRDs: false
