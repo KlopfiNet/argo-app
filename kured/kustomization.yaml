@@ -5,7 +5,10 @@ helmCharts:
   - name: kured
     repo: https://kubereboot.github.io/charts
     releaseName: kured
-    namespace: kube-system
+    namespace: kured
     version: 5.3.2
     valuesFile: values.yaml
 
+resources:
+  - namespace_kured.yaml
+  - sealedsecret_discord-hook.yaml

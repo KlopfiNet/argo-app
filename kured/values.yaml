@@ -1,6 +1,6 @@
 configuration:
   period: "30m"
-  notifyUrl: "discord://pending"
+  notifyUrl: "discord://${DISCORD_HOOK}"
   timeZone: "Europe/Zurich"
   annotateNodes: true
 
@@ -11,3 +11,10 @@ tolerations:
   - key: node-role.kubernetes.io/control-plane
     operator: "Exists"
     effect: "NoExecute"
+
+extraEnvVars:
+  - name: DISCORD_HOOK
+    valueFrom:
+      secretKeyRef:
+        name: kured-discord-hook
+        key: hook
