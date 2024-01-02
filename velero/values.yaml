@@ -33,6 +33,8 @@ configuration:
 credentials:
   existingSecret: cloud-credentials
 
+deployNodeAgent: true
+
 # Not adding this will actually troll you
 initContainers:
   - name: velero-plugin-for-aws
