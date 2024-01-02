@@ -19,3 +19,4 @@ helmCharts:
 resources:
   - namespace_velero.yaml
   - sealedsecret_cloud-credentials.yaml
+  - schedule_sealedsecrets.yaml
