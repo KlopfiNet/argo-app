@@ -30,6 +30,9 @@ configuration:
       profile: "default"
       insecureSkipTLSVerify: true
 
+credentials:
+  existingSecret: cloud-credentials
+
 # Not adding this will actually troll you
 initContainers:
   - name: velero-plugin-for-aws
