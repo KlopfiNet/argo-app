@@ -5,7 +5,7 @@ metadata:
   namespace: github-actions
 spec:
   template:
-    Spec:
+    spec:
       labels:
         - kubernetes
       organization: KlopfiNet
