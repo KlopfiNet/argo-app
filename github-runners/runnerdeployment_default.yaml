@@ -1,0 +1,15 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: default
+  namespace: actions
+spec:
+  template:
+    Spec:
+      labels:
+        - kubernetes
+      organization: KlopfiNet
+      resources:
+        requests:
+          cpu: 1500m
+          memory: 2000Mi
