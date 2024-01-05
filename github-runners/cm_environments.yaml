@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: github-actions
+  name: github-actions-environments
+data:
+  github-owner: KlopfiNet
+  labels: kubernetes
+immutable: true
