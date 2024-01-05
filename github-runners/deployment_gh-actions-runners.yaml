@@ -37,7 +37,7 @@ spec:
               configMapKeyRef:
                 name: github-actions-environments
                 key: github-owner
-          - name: $RUNNER_LABELS
+          - name: RUNNER_LABELS
             valueFrom:
               configMapKeyRef:
                 name: github-actions-environments
