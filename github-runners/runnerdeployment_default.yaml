@@ -11,5 +11,5 @@ spec:
       organization: KlopfiNet
       resources:
         requests:
-          cpu: 1500m
-          memory: 2000Mi
+          cpu: 250m
+          memory: 500Mi
