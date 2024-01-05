@@ -1,0 +1,8 @@
+serviceAccount:
+  create: false
+  name: sa-github-actions
+
+authSecret:
+  enabled: true
+  create: false
+  name: "controller-manager"
