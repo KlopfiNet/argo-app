@@ -5,7 +5,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: sa-github-actions
-  apiGroup: rbac.authorization.k8s.io
+  namespace: github-actions
 roleRef:
   kind: ClusterRole
   name: github-actions
