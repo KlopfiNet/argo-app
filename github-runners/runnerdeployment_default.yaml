@@ -9,6 +9,18 @@ spec:
       labels:
         - kubernetes
       organization: KlopfiNet
+      env:
+        # OctoDNS stuff
+        - name: CLOUDFLARE_TOKEN
+          valueFrom:
+            secretKeyRef:
+              - name: actions-octodns-data
+                key: token
+        - name: RFC2316_HOST
+          valueFrom:
+            secretKeyRef:
+              - name: actions-octodns-data
+                key: rfcHost
       resources:
         requests:
           cpu: 250m

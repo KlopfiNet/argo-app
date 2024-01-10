@@ -15,4 +15,5 @@ resources:
   - ns_github-actions.yaml
   - sa_github-actions.yaml
   - runnerdeployment_default.yaml
+  - sealedsecret_actions-cloudflare-token.yaml
   - sealedsecret_controller-manager.yaml
