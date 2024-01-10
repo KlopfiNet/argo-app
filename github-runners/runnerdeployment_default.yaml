@@ -14,13 +14,13 @@ spec:
         - name: CLOUDFLARE_TOKEN
           valueFrom:
             secretKeyRef:
-              - name: actions-octodns-data
-                key: token
+              name: actions-octodns-data
+              key: token
         - name: RFC2316_HOST
           valueFrom:
             secretKeyRef:
-              - name: actions-octodns-data
-                key: rfcHost
+              name: actions-octodns-data
+              key: rfcHost
       resources:
         requests:
           cpu: 250m
