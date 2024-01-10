@@ -3,7 +3,7 @@ kind: ClusterRoleBinding
 metadata:
   name: github-actions
 subjects:
-- kind: User
+- kind: ServiceAccount
   name: sa-github-actions
   apiGroup: rbac.authorization.k8s.io
 roleRef:
