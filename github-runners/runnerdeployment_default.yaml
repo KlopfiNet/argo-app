@@ -44,9 +44,14 @@ spec:
           configMap:
             name: klopfi-net-ca
             defaultMode: 420
+        - name: cache-volume
+          mountPath: /cache
       volumeMounts:
         - name: ca-bundles
           mountPath: /etc/ssl/certs/
         - name: tooling
           mountPath: /home/runner/.local
           subPath: .local
+        - name: cache-volume
+          persistentVolumeClaim:
+            claimName: cache-storage

@@ -10,10 +10,11 @@ helmCharts:
     valuesFile: values.yaml
 
 resources:
-  - crb_github-actions.yaml
   - cr_github-actions.yaml
+  - crb_github-actions.yaml
   - ns_github-actions.yaml
-  - sa_github-actions.yaml
+  - pvc_cache-storage.yaml
   - runnerdeployment_default.yaml
+  - sa_github-actions.yaml
   - sealedsecret_actions-cloudflare-token.yaml
   - sealedsecret_controller-manager.yaml
