@@ -4,3 +4,4 @@ metadata:
   name: github-actions
   labels:
     gateway: internal
+    linkerd.io/inject: enabled

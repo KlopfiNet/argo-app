@@ -38,9 +38,15 @@ spec:
           memory: 500Mi
       serviceAccountName: sa-github-actions
       volumes:
-      - name: tooling
-        emptyDir: {}
+        - name: tooling
+          emptyDir: {}
+        - name: ca-bundles
+          configMap:
+            name: klopfi-net-ca
+            defaultMode: 420
       volumeMounts:
-      - mountPath: /home/runner/.local
-        name: tooling
-        subPath: .local
+        - name: ca-bundles
+          mountPath: /etc/ssl/certs/
+        - name: tooling
+          mountPath: /home/runner/.local
+          subPath: .local
