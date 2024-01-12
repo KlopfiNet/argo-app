@@ -18,6 +18,17 @@ spec:
             secretKeyRef:
               name: actions-octodns-data
               key: rfcHost
+      initContainers:
+        - name: install-terraform
+          image: hashicorp/terraform:latest
+          command:
+            - sh
+            - -c
+            - mkdir -p /tooling/.local/bin; cp /bin/terraform /tooling/.local/bin/terraform
+            # The mkdir thing is a trick to inject binaries into $PATH of the runner
+          volumeMounts:
+          - name: tooling
+            mountPath: /tooling
       labels:
         - kubernetes
       organization: KlopfiNet
@@ -26,3 +37,10 @@ spec:
           cpu: 250m
           memory: 500Mi
       serviceAccountName: sa-github-actions
+      volumes:
+      - name: tooling
+        emptyDir: {}
+      volumeMounts:
+      - mountPath: /home/runner/.local
+        name: tooling
+        subPath: .local
