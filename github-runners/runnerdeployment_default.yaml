@@ -47,6 +47,9 @@ spec:
         - name: cache-volume
           persistentVolumeClaim:
             claimName: cache-storage
+        - name: gh-bot-key
+          secret:
+            secretName: gh-klopfi-bot-ssh-key
       volumeMounts:
         - name: ca-bundles
           mountPath: /etc/ssl/certs/
@@ -55,3 +58,6 @@ spec:
           subPath: .local
         - name: cache-volume
           mountPath: /cache
+        - name: ssh-key
+          mountPath: /opt
+          readOnly: true

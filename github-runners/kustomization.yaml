@@ -18,3 +18,4 @@ resources:
   - sa_github-actions.yaml
   - sealedsecret_actions-cloudflare-token.yaml
   - sealedsecret_controller-manager.yaml
+  - sealedsecret_gh-klopfi-bot-ssh-key.yaml
