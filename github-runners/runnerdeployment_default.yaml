@@ -50,6 +50,7 @@ spec:
         - name: ssh-key
           secret:
             secretName: gh-klopfi-bot-ssh-key
+            defaultMode: 384
       volumeMounts:
         - name: ca-bundles
           mountPath: /etc/ssl/certs/
