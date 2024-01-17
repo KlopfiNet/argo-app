@@ -24,7 +24,10 @@ spec:
           command:
             - sh
             - -c
-            - mkdir -p /tooling/.local/bin; cp /bin/terraform /tooling/.local/bin/terraform
+            - >-
+              mkdir -p /tooling/.local/bin;
+              cp /bin/terraform /tooling/.local/bin/terraform;
+              chown -R 1000:1000 /tooling/.local
             # The mkdir thing is a trick to inject binaries into $PATH of the runner
           volumeMounts:
           - name: tooling
