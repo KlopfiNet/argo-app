@@ -17,8 +17,8 @@ ingress:
   hosts:
   - host: k8s-dashboard.klopfi.net
     paths:
-      - path: /
-        pathType: Prefix
+    - path: /
+      type: Prefix
   tls:
   - hosts:
     - k8s-dashboard.klopfi.net
