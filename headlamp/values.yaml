@@ -4,19 +4,3 @@ tolerations:
   - key: "node-role.kubernetes.io/infra"
     operator: "Exists"
     effect: "NoSchedule"
-
-ingress:
-  enabled: true
-  ingressClassName: nginx
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    octodns-kubernetes.rybni.co/hostname: k8s-dashboard.klopfi.net
-  hosts:
-  - host: k8s-dashboard.klopfi.net
-    paths:
-    - path: /
-      type: Prefix
-  tls:
-  - hosts:
-    - k8s-dashboard.klopfi.net
-    secretName: ingress-server-tls

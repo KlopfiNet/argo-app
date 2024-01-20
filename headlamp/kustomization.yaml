@@ -10,5 +10,6 @@ helmCharts:
     valuesFile: values.yaml
 
 resources:
+  - ing_headlamp.yaml
   - ns_headlamp.yaml
   - sealedsecret_oidc.yaml
