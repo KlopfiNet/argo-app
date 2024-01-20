@@ -5,9 +5,6 @@ tolerations:
     operator: "Exists"
     effect: "NoSchedule"
 
-config:
-  baseURL: "https://k8s-dashboard.klopfi.net"
-
 ingress:
   enabled: true
   ingressClassName: nginx
