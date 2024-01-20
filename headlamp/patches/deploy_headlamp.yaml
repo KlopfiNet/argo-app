@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: headlamp
+  namespace: headlamp
+spec:
+  template:
+    spec:
+      containers:
+      - name: headlamp
+        env:
+        - name: OIDC_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              key: clientID
+              name: oidc
+        - name: OIDC_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: clientSecret
+              name: oidc
+        - name: OIDC_ISSUER_URL
+          valueFrom:
+            secretKeyRef:
+              key: issuerURL
+              name: oidc
+        - name: OIDC_SCOPES
+          valueFrom:
+            secretKeyRef:
+              key: scopes
+              name: oidc

@@ -13,3 +13,9 @@ resources:
   - ing_headlamp.yaml
   - ns_headlamp.yaml
   - sealedsecret_oidc.yaml
+
+patches:
+  - target:
+      kind: Deployment
+      name: headlamp
+    path: patches/deploy_headlamp.yaml
