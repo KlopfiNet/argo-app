@@ -1,0 +1,18 @@
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: default-all
+  namespace: velero
+spec:
+  schedule: 0 6,12,17 * * *
+  template:
+    excludedNamespaces:
+    - test
+    - default
+    excludedResources:
+    - CertificateRequest
+    - CiliumEndpoint
+    - Endpoint
+    - EndpointSlice
+    - Order
+    ttl: 168h
