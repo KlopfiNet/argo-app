@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: qbittorrent
+  name: qbittorrent
+  namespace: klopfi-qbittorrent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qbittorrent
+  template:
+    metadata:
+      labels:
+        app: qbittorrent
+    spec:
+      containers:
+      - image: lscr.io/linuxserver/qbittorrent:latest
+        name: qbittorrent
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: Europe/Zurich
+        - name: WEBUI_PORT
+          value: "8080"
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - name: data
+          mountPath: /downloads
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: qbittorrent-data
+      - name: config
+        persistentVolumeClaim:
+          claimName: qbittorrent-config
