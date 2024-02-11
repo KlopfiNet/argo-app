@@ -6,7 +6,7 @@ helmCharts:
     repo: https://vmware-tanzu.github.io/helm-charts/
     releaseName: velero
     namespace: velero
-    version: 5.2.0
+    version: 5.3.0
     valuesFile: values.yaml
 
   # The vmware-tanzu chart does not install the CRDs...
