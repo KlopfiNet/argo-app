@@ -1,0 +1,33 @@
+env:
+  TZ: Europe/Zurich
+
+ingress:
+  main:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      nginx.ingress.kubernetes.io/proxy-body-size: 64m
+    hosts:
+      - host: paperless.klopfi.net
+        paths:
+          - path: /
+    tls:
+      - secretName: paperless-server.klopfi.net
+        hosts:
+          - paperless.klopfi.net
+
+persistence:
+  data:
+    enabled: true
+    retain: true
+    mountPath: /usr/src/paperless/data
+    # storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  media:
+    enabled: true
+    retain: true
+    mountPath: /usr/src/paperless/media
+    # storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 8Gi
