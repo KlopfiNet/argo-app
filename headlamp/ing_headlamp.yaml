@@ -3,13 +3,12 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    octodns-kubernetes.rybni.co/hostname: k8s-dashboard.klopfi.net
   name: headlamp
   namespace: headlamp
 spec:
   ingressClassName: nginx
   rules:
-  - host: k8s-dashboard.klopfi.net
+  - host: k8s-dashboard.apps.klopfi.net
     http:
       paths:
       - backend:
@@ -21,5 +20,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - k8s-dashboard.klopfi.net
+    - k8s-dashboard.apps.klopfi.net
     secretName: ingress-server-tls
