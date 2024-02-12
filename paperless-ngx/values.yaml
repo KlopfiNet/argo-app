@@ -8,13 +8,13 @@ ingress:
       cert-manager.io/cluster-issuer: letsencrypt
       nginx.ingress.kubernetes.io/proxy-body-size: 64m
     hosts:
-      - host: paperless.klopfi.net
+      - host: paperless.apps.klopfi.net
         paths:
           - path: /
     tls:
       - secretName: paperless-server.klopfi.net
         hosts:
-          - paperless.klopfi.net
+          - paperless.apps.klopfi.net
 
 persistence:
   data:
