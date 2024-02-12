@@ -11,3 +11,4 @@ helmCharts:
 
 resources:
   - ns_paperless-ngx.yaml
+  - ing_paperless-ngx.yaml

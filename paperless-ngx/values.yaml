@@ -1,21 +1,6 @@
 env:
   TZ: Europe/Zurich
 
-ingress:
-  main:
-    enabled: true
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      nginx.ingress.kubernetes.io/proxy-body-size: 64m
-    hosts:
-      - host: paperless.apps.klopfi.net
-        paths:
-          - path: /
-    tls:
-      - secretName: paperless-server.klopfi.net
-        hosts:
-          - paperless.apps.klopfi.net
-
 persistence:
   data:
     enabled: true

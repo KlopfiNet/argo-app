@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/proxy-body-size: 64m
+  name: paperless-ngx
+  namespace: paperless-ngx
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: paperless.apps.klopfi.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: paperless-ngx
+            port:
+              number: 8000
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - paperless.apps.klopfi.net
+    secretName: paperless-server.klopfi.net
