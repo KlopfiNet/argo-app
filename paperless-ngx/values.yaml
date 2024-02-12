@@ -32,3 +32,6 @@ persistence:
   consume:
     accessMode: ReadWriteOnce
     size: 4Gi
+  export:
+    accessMode: ReadWriteOnce
+    size: 1Gi
