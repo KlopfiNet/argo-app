@@ -1,5 +1,6 @@
 env:
   TZ: Europe/Zurich
+  PAPERLESS_URL: https://paperless.apps.klopfi.net
 
 persistence:
   data:
