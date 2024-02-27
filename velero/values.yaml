@@ -38,7 +38,7 @@ deployNodeAgent: true
 # Not adding this will actually troll you
 initContainers:
   - name: velero-plugin-for-aws
-    image: velero/velero-plugin-for-aws:v1.8.2
+    image: velero/velero-plugin-for-aws:v1.9.0
     imagePullPolicy: IfNotPresent
     volumeMounts:
       - mountPath: /target
