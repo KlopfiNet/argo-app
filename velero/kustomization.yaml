@@ -20,3 +20,4 @@ resources:
   - namespace_velero.yaml
   - sealedsecret_cloud-credentials.yaml
   - schedule_sealedsecrets.yaml
+  - schedule_default-all.yaml
