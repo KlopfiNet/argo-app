@@ -3,6 +3,9 @@ env:
   PAPERLESS_URL: https://paperless.apps.klopfi.net
   PAPERLESS_CONSUMER_POLLING: 30
 
+podAnnotations:
+  backup.velero.io/backup-volumes-excludes: paperless-ngx-consume
+
 persistence:
   data:
     enabled: true
