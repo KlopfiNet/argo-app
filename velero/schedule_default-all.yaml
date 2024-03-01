@@ -15,4 +15,5 @@ spec:
     - Endpoint
     - EndpointSlice
     - Order
+    snapshotVolumes: false
     ttl: 168h
