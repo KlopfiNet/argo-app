@@ -6,7 +6,7 @@ helmCharts:
     repo: https://charts.gabe565.com
     releaseName: paperless-ngx
     namespace: paperless-ngx
-    version: 0.15.1
+    version: 0.15.2
     valuesFile: values.yaml
 
 resources:
