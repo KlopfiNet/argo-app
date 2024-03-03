@@ -1,4 +1,5 @@
 configuration:
+  uploaderType: kopia
   backupStorageLocation:
   - name: default
     provider: aws
@@ -34,11 +35,18 @@ credentials:
   existingSecret: cloud-credentials
 
 deployNodeAgent: true
+features: EnableCSI
 
 # Not adding this will actually troll you
 initContainers:
   - name: velero-plugin-for-aws
     image: velero/velero-plugin-for-aws:v1.9.0
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
+  - name: velero-plugin-for-csi
+    image: velero/velero-plugin-for-csi:v0.7.0
     imagePullPolicy: IfNotPresent
     volumeMounts:
       - mountPath: /target
