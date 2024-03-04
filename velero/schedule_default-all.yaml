@@ -16,6 +16,3 @@ spec:
     - EndpointSlice
     - Order
     ttl: 168h
-    
-    # Snapshotting does not seem to work yet
-    snapshotVolumes: false
