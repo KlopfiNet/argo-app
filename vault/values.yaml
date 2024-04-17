@@ -1,15 +1,15 @@
 server:
   ingress:
     enabled: true
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-  ingressClassName: nginx
-  hosts:
-    - host: vault.apps.klopfi.net
-  tls:
-    - secretName: wildcard-klopfi-net
-      hosts:
-        - vault.apps.klopfi.net
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    ingressClassName: nginx
+    hosts:
+      - host: vault.apps.klopfi.net
+    tls:
+      - secretName: wildcard-klopfi-net
+        hosts:
+          - vault.apps.klopfi.net
   nodeSelector:
     infra: "true"
   tolerations:
