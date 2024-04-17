@@ -1,0 +1,26 @@
+server:
+  ingress:
+    enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  ingressClassName: nginx
+  hosts:
+    - host: vault.apps.klopfi.net
+  tls:
+    - secretName: vault-tls
+      hosts:
+        - vault.apps.klopfi.net
+  ha:
+    enabled: true
+  nodeSelector:
+    infra: "true"
+  tolerations:
+    - key: "node-role.kubernetes.io/infra"
+      operator: "Exists"
+      effect: "NoSchedule"
+
+serverTelemetry:
+  serviceMonitor:
+    enabled: true
+  prometheusRules:
+    enabled: true
