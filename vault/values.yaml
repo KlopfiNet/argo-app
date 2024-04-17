@@ -10,8 +10,6 @@ server:
     - secretName: vault-tls
       hosts:
         - vault.apps.klopfi.net
-  ha:
-    enabled: true
   nodeSelector:
     infra: "true"
   tolerations:
