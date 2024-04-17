@@ -28,8 +28,6 @@ spec:
       serviceAccountName: sa-github-actions
       image: thisisnttheway/github-runner-image-summerwind:latest
       volumes:
-        - name: tooling
-          emptyDir: {}
         - name: ca-bundles
           configMap:
             name: klopfi-net-ca
@@ -44,9 +42,6 @@ spec:
       volumeMounts:
         - name: ca-bundles
           mountPath: /etc/ssl/certs/
-        - name: tooling
-          mountPath: /home/runner/.local
-          subPath: .local
         - name: cache-volume
           mountPath: /cache
         - name: ssh-key
