@@ -21,4 +21,4 @@ spec:
   tls:
   - hosts:
     - k8s-dashboard.apps.klopfi.net
-    secretName: ingress-server-tls
+    secretName: wildcard-klopfi-net

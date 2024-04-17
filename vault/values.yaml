@@ -7,7 +7,7 @@ server:
   hosts:
     - host: vault.apps.klopfi.net
   tls:
-    - secretName: vault-tls
+    - secretName: wildcard-klopfi-net
       hosts:
         - vault.apps.klopfi.net
   nodeSelector:

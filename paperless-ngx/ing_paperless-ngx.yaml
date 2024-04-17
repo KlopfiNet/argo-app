@@ -22,4 +22,4 @@ spec:
   tls:
   - hosts:
     - paperless.apps.klopfi.net
-    secretName: paperless-server.klopfi.net
+    secretName: wildcard-klopfi-net
