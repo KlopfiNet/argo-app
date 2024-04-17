@@ -1,8 +1,6 @@
 server:
   ingress:
     enabled: true
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
     ingressClassName: nginx
     hosts:
       - host: vault.apps.klopfi.net
