@@ -1,0 +1,7 @@
+global:
+  nodeSelector:
+    infra: "true"
+  tolerations:
+    - key: "node-role.kubernetes.io/infra"
+      operator: "Exists"
+      effect: "NoSchedule"
