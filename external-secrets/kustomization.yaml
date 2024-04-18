@@ -11,3 +11,5 @@ helmCharts:
 
 resources:
   - ns_external-secrets.yaml
+  - secretstore_vault.yaml
+  - clustersecretstore_vault.yaml
