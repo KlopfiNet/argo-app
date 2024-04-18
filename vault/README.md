@@ -32,18 +32,24 @@ rm $POLICY_FILE
 POLICY_NAME=kubernetes
 vault auth enable kubernetes
 
-# Get SA token
-token=$(k -n external-secrets get secret external-secrets-sa-token -o json | jq .data.token -r | base64 -d)
+# Get SA token. Only needed if token_reviewer_jwt is set for auth/kubernetes/config
+#token=$(k -n external-secrets get secret external-secrets-sa-token -o json | jq .data.token -r | base64 -d)
 
 # Get CA cert
 KB_ENDPOINT="kubernetes.klopfi.net"
 k config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}' | base64 -d > ca.crt
 
 vault write auth/kubernetes/config \
-    token_reviewer_jwt="$token" \
     kubernetes_host=https://$KB_ENDPOINT:6443 \
-    kubernetes_ca_cert=@ca.crt
+    kubernetes_ca_cert=@ca.crt \
+    disable_local_ca_jwt=true
 rm ca.crt
+
+vault write auth/kubernetes/role/ghactions \
+    bound_service_account_names=sa-github-actions \
+    bound_service_account_namespaces=github-actions \
+    policies=$POLICY_NAME \
+    ttl=1h
 
 vault write auth/kubernetes/role/externalsecrets \
     bound_service_account_names=external-secrets \
