@@ -12,10 +12,10 @@ helmCharts:
 resources:
   - cr_github-actions.yaml
   - crb_github-actions.yaml
+  - externalsecret_actions-cloudflare-token.yaml
+  - externalsecret_controller-manager.yaml
+  - externalsecret_gh-klopfi-bot-ssh-key.yaml
   - ns_github-actions.yaml
   - pvc_cache-storage.yaml
   - runnerdeployment_default.yaml
   - sa_github-actions.yaml
-  - sealedsecret_actions-cloudflare-token.yaml
-  - sealedsecret_controller-manager.yaml
-  - sealedsecret_gh-klopfi-bot-ssh-key.yaml
