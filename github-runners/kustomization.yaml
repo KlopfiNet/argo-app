@@ -12,7 +12,7 @@ helmCharts:
 resources:
   - cr_github-actions.yaml
   - crb_github-actions.yaml
-  - externalsecret_actions-cloudflare-token.yaml
+  - externalsecret_actions-octodns-data.yaml
   - externalsecret_controller-manager.yaml
   - externalsecret_gh-klopfi-bot-ssh-key.yaml
   - ns_github-actions.yaml
