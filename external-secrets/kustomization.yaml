@@ -11,5 +11,7 @@ helmCharts:
 
 resources:
   - clustersecretstore_vault.yaml
+  - clusterrolebinding_vault-tokenreview.yaml
   - ns_external-secrets.yaml
   - sealedsecret_vault-token.yaml
+  - secret_serviceaccount-token.yaml
