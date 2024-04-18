@@ -10,6 +10,6 @@ helmCharts:
     valuesFile: values.yaml
 
 resources:
-  - ns_external-secrets.yaml
-  - secretstore_vault.yaml
   - clustersecretstore_vault.yaml
+  - ns_external-secrets.yaml
+  - sealedsecret_vault-token.yaml
