@@ -37,11 +37,11 @@ token=$(k -n external-secrets get secret external-secrets-sa-token -o json | jq 
 
 # Get CA cert
 KB_ENDPOINT="kubernetes.klopfi.net"
-openssl s_client -showcerts -connect $KB_ENDPOINT:6443 </dev/null 2>/dev/null | openssl x509 -outform PEM > ca.crt
+k config view --raw --minify --flatten -o jsonpath='{.clusters[].cluster.certificate-authority-data}' | base64 -d > ca.crt
 
 vault write auth/kubernetes/config \
     token_reviewer_jwt="$token" \
-    kubernetes_host=https://$KB_ENDPOINT \
+    kubernetes_host=https://$KB_ENDPOINT:6443 \
     kubernetes_ca_cert=@ca.crt
 rm ca.crt
 
@@ -50,6 +50,15 @@ vault write auth/kubernetes/role/externalsecrets \
     bound_service_account_namespaces=external-secrets \
     policies=$POLICY_NAME \
     ttl=1h
+```
+
+### Login test
+```bash
+token=$(k -n external-secrets get secret external-secrets-sa-token -o json | jq .data.token -r | base64 -d)
+curl \
+    --request POST \
+    --data '{"jwt": "'$token'", "role": "externalsecrets"}' \
+    https://vault.apps.klopfi.net/v1/auth/kubernetes/login
 ```
 
 ## Token
