@@ -1,6 +1,6 @@
 To update cloud-credentials:
 ```bash
-# 1. Update "cred"
+# 1. Update file "cloud"
 # 2. Create secret
 kubectl -n velero create secret generic cloud-credentials --from-file=./cloud --dry-run=client -o yaml > secret.yaml
 
