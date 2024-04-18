@@ -10,3 +10,6 @@ subjects:
   - kind: ServiceAccount
     name: external-secrets
     namespace: external-secrets
+  - kind: ServiceAccount
+    name: sa-github-actions
+    namespace: github-actions
