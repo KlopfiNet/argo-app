@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rtmp-server-config
+data:
+  mediamtx.yml: |
+    authInternalUsers:
+    - user: admin
+      pass: sha256:oShXqafjR/IV8YCi7n6dG8dlN027k1/GQNOJUbeMk2Q=
+      ips: []
+      permissions:
+      # Empty path: any path
+      - action: publish
+        path:
+      - action: read
+        path:
+      - action: playback
+        path:
+    paths:
+      glide:
+
+# To update password: echo -n "Marbleblast321" | openssl dgst -binary -sha256 | openssl base64
+# MUST prefix with sha256
