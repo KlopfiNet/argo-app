@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rtmp-server
+spec:
+  selector:
+    matchLabels:
+      app: rtmp-server
+  template:
+    metadata:
+      labels:
+        app: rtmp-server
+    spec:
+      containers:
+      - name: rtmp-server
+        image: bluenviron/mediamtx:1.8.2
+        ports:
+        - containerPort: 1935
