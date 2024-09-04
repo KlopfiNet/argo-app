@@ -3,7 +3,7 @@ githubConfigSecret: controller-manager
 
 minRunners: 1
 
-nameOverride: kubernetes
+runnerScaleSetName: kubernetes
 
 containerMode:
   type: kubernetes
