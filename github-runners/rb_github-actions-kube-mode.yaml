@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: github-actions-kube-mode
+  namespace: github-actions
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: kubernetes-gha-rs-kube-mode
+        # Depends on helm release name or Values.runnerScaleSetName
+subjects:
+- kind: ServiceAccount
+  name: sa-github-actions
+  namespace: github-actions

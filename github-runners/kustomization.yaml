@@ -24,4 +24,5 @@ resources:
   - externalsecret_gh-klopfi-bot-ssh-key.yaml
   - ns_github-actions.yaml
   - pvc_cache-storage.yaml
+  - rb_github-actions-kube-mode.yaml
   - sa_github-actions.yaml
