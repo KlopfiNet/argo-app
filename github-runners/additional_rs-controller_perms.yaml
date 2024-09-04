@@ -1,0 +1,28 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: actions-runner-controller-additional-perms
+  namespace: github-actions
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: actions-runner-controller-additional-perms
+subjects:
+- kind: ServiceAccount
+  name: actions-runner-controller-gha-rs-controller
+  namespace: github-actions
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: actions-runner-controller-additional-perms
+  namespace: github-actions
+rules:
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - roles
+  - rolebindings
+  verbs:
+  - create

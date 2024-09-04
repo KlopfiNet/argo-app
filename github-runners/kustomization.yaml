@@ -12,9 +12,11 @@ helmCharts:
     releaseName: actions-runner-set
     namespace: github-actions
     version: 0.9.3
+    includeCRDs: true
     valuesFile: values.yaml
 
 resources:
+  - additional_rs-controller_perms.yaml
   - cr_github-actions.yaml
   - crb_github-actions.yaml
   - externalsecret_actions-octodns-data.yaml
