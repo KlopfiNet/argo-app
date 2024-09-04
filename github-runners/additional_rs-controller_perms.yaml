@@ -26,3 +26,4 @@ rules:
   - rolebindings
   verbs:
   - create
+  - delete

@@ -1,6 +1,8 @@
 githubConfigUrl: https://github.com/KlopfiNet
 githubConfigSecret: controller-manager
 
+minRunners: 1
+
 nameOverride: kubernetes
 
 containerMode:
