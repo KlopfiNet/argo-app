@@ -12,6 +12,7 @@ template:
     containers:
       - name: runner
         image: thisisnttheway/github-runner-image-actions-runner:latest
+        command: ["/home/runner/run.sh"]
         env:
           - name: CLOUDFLARE_TOKEN
             valueFrom:
