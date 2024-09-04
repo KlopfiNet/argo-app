@@ -2,14 +2,21 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 helmCharts:
-  - name: actions-runner-controller
-    repo: https://actions-runner-controller.github.io/actions-runner-controller
+  - name: gha-runner-scale-set-controller
+    repo: oci://ghcr.io/actions/actions-runner-controller-charts
     releaseName: actions-runner-controller
     namespace: github-actions
-    version: 0.23.7
+    version: 0.9.3
+  - name: gha-runner-scale-set
+    repo: oci://ghcr.io/actions/actions-runner-controller-charts
+    releaseName: actions-runner-set
+    namespace: github-actions
+    version: 0.9.3
+    includeCRDs: true
     valuesFile: values.yaml
 
 resources:
+  - additional_rs-controller_perms.yaml
   - cr_github-actions.yaml
   - crb_github-actions.yaml
   - externalsecret_actions-octodns-data.yaml
@@ -17,5 +24,5 @@ resources:
   - externalsecret_gh-klopfi-bot-ssh-key.yaml
   - ns_github-actions.yaml
   - pvc_cache-storage.yaml
-  - runnerdeployment_default.yaml
+  - rb_github-actions-kube-mode.yaml
   - sa_github-actions.yaml
