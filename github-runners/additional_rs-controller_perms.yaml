@@ -27,3 +27,9 @@ rules:
   verbs:
   - create
   - delete
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - list
