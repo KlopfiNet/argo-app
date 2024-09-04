@@ -24,6 +24,8 @@ template:
               secretKeyRef:
                 name: actions-octodns-data
                 key: rfcHost
+          - name: ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER
+            value: "false"
         volumeMounts:
           - name: ca-bundles
             mountPath: /etc/ssl/certs/
