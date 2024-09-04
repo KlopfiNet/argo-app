@@ -1,8 +1,51 @@
-serviceAccount:
-  create: false
-  name: sa-github-actions
+githubConfigUrl: https://github.com/KlopfiNet
+githubConfigSecret: controller-manager
 
-authSecret:
-  enabled: true
-  create: false
-  name: "controller-manager"
+nameOverride: kubernetes
+
+containerMode:
+  type: kubernetes
+#template:
+#  spec:
+#    containers:
+#      - name: runner
+##        image: thisisnttheway/github-runner-image-actions-runner:latest
+#        env:
+#          - name: CLOUDFLARE_TOKEN
+#            valueFrom:
+#              secretKeyRef:
+#                name: actions-octodns-data
+#                key: token
+#          - name: RFC2316_HOST
+#            valueFrom:
+#              secretKeyRef:
+#                name: actions-octodns-data
+#                key: rfcHost
+#        volumeMounts:
+#          - name: ca-bundles
+#            mountPath: /etc/ssl/certs/
+#          - name: cache-volume
+#            mountPath: /cache
+#          - name: ssh-key
+#            mountPath: /var/gh-secret
+#            readOnly: true
+#    volumes:
+#      - name: ca-bundles
+#        configMap:
+#          name: klopfi-net-ca
+#          defaultMode: 420
+#      - name: cache-volume
+#        persistentVolumeClaim:
+#          claimName: cache-storage
+#      - name: ssh-key
+#        secret:
+#          secretName: gh-klopfi-bot-ssh-key
+#          defaultMode: 384
+#      # Defining this skips containerMode.kubernetesModeWorkVolumeClaim
+#      - name: work
+#        emptyDir:
+#          sizeLimit: 2Gi
+#
+controllerServiceAccount:
+  namespace: github-actions
+  name: gha-runner-scale-set-controller
