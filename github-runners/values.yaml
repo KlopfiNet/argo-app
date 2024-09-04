@@ -34,6 +34,7 @@ template:
           - name: ssh-key
             mountPath: /var/gh-secret
             readOnly: true
+    serviceAccountName: sa-github-actions
     volumes:
       - name: ca-bundles
         configMap:
