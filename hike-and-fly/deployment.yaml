@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hikeandfly-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hikeandfly
+  template:
+    metadata:
+      labels:
+        app: hikeandfly
+    spec:
+      containers:
+      - name: hikeandfly
+        image: hoff97/hikeandfly:latest
+        ports:
+        - containerPort: 8080
