@@ -15,4 +15,4 @@ spec:
     - Endpoint
     - EndpointSlice
     - Order
-    ttl: 168h
+    ttl: 720h
